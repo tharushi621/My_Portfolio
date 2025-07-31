@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Projects - Tharushi Bhagya</title>
+  <meta name="description" content="Portfolio of academic and personal projects by Tharushi Bhagya">
+  <meta name="keywords" content="projects, portfolio, software engineering, development">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e293b;
+      --accent-color: #06b6d4;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --background-primary: #ffffff;
+      --background-secondary: #f8fafc;
+      --background-card: #ffffff;
+      --border-color: #e2e8f0;
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #2563eb 100%);
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--background-secondary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Header Styles */
+    .header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .navbar-nav .nav-link {
+      font-weight: 500;
+      color: var(--text-primary);
+      position: relative;
+      transition: all 0.3s ease;
+      margin: 0 0.5rem;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: var(--primary-color);
+    }
+
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-accent);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after {
+      width: 80%;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--background-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+      margin: 0 0.25rem;
+    }
+
+    .social-links a:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: var(--background-primary);
+      padding: 6rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: var(--gradient-primary);
+      opacity: 0.05;
+      border-radius: 0 0 0 100px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-weight: 400;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Projects Section */
+    .projects-section {
+      background: var(--background-secondary);
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--gradient-accent);
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Project Cards */
+    .project-card {
+      background: var(--background-card);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      height: 100%;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-accent);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.05);
+    }
+
+    .project-body {
+      padding: 2rem;
+    }
+
+    .project-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .project-tech {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: white;
+      padding: 0.25rem 1rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .project-description {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .project-features {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    .project-features li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
+
+    .project-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .view-more-btn {
+      background: var(--gradient-accent);
+      border: none;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .view-more-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      color: white;
+    }
+
+    .project-details {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .project-link:hover {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .project-link i {
+      margin-left: 0.5rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--secondary-color);
+      color: white;
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-content {
+      text-align: center;
+    }
+
+    .footer .social-links a {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .footer .social-links a:hover {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .project-body {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-section {
+        padding: 4rem 0 2rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Tharushi</a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="resume.html">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="projects.html">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          
+          <div class="social-links">
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up">
+        <h1 class="hero-title">My Projects</h1>
+        <p class="hero-subtitle">
+          A showcase of my academic and personal projects that demonstrate my skills in software development, 
+          hardware integration, and problem-solving.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects-section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Featured Projects</h2>
+        <p class="section-subtitle">
+          Explore my diverse range of projects spanning web development, hardware engineering, 
+          and research initiatives.
+        </p>
+      </div>
+
+      <div class="row gy-4">
+
+        <!-- Project Card 1 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-card">
+            <img src="assets/img/1.jpeg" class="project-image" alt="Smart Elevator System">
+            <div class="project-body">
+              <h5 class="project-title">Smart Elevator System</h5>
+              <span class="project-tech">Hardware • Arduino</span>
+              <p class="project-description">
+                An innovative voice-enabled smart elevator system built with Arduino technology.
+              </p>
+              <button class="view-more-btn">View Details</button>
+              <div class="project-details" style="display: none;">
+                <p>Developed a comprehensive smart elevator system featuring advanced voice recognition and safety monitoring capabilities.</p>
+                <ul class="project-features">
+                  <li>Voice command recognition for floor selection</li>
+                  <li>Real-time temperature monitoring and alerts</li>
+                  <li>Overload detection and safety protocols</li>
+                  <li>LCD display for system status</li>
+                  <li>Emergency stop functionality</li>
+                </ul>
+                <p><strong>Technologies:</strong> Arduino Uno, Voice Recognition Module, Temperature Sensors, Load Cells</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-card">
+            <img src="assets/img/osi.jpeg" class="project-image" alt="ShadowByte OSINT Dashboard">
+            <div class="project-body">
+              <h5 class="project-title">ShadowByte OSINT Dashboard</h5>
+              <span class="project-tech">Python • Web Scraping</span>
+              <p class="project-description">
+                A unified Open Source Intelligence dashboard for digital forensics and cyber security analysis.
+              </p>
+              <button class="view-more-btn">View Details</button>
+              <div class="project-details" style="display: none;">
+                <p>Comprehensive OSINT platform integrating multiple intelligence gathering tools for cybersecurity professionals.</p>
+                <ul class="project-features">
+                  <li>Automated network mapping and reconnaissance</li>
+                  <li>Real-time news scraping and analysis</li>
+                  <li>Data visualization with interactive graphs</li>
+                  <li>Social media intelligence gathering</li>
+                  <li>Threat intelligence correlation</li>
+                </ul>
+                <p><strong>Technologies:</strong> Python, BeautifulSoup, Requests, Matplotlib, NetworkX</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-card">
+            <img src="assets/img/web.jpeg" class="project-image" alt="Student Management System">
+            <div class="project-body">
+              <h5 class="project-title">Student Management System</h5>
+              <span class="project-tech">Full Stack • React</span>
+              <p class="project-description">
+                A comprehensive web application for managing student records and course information.
+              </p>
+              <button class="view-more-btn">View Details</button>
+              <div class="project-details" style="display: none;">
+                <p>Modern full-stack web application designed for educational institutions to manage student data efficiently.</p>
+                <ul class="project-features">
+                  <li>Student registration and profile management</li>
+                  <li>Course enrollment and tracking</li>
+                  <li>Grade management and reporting</li>
+                  <li>Admin dashboard with analytics</li>
+                  <li>Responsive design for all devices</li>
+                </ul>
+                <p><strong>Tech Stack:</strong> React.js, Tailwind CSS, Spring Boot, PostgreSQL</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 4 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="project-card">
+            <img src="assets/img/exc.jpg" class="project-image" alt="Expense Tracker App">
+            <div class="project-body">
+              <h5 class="project-title">Expense Tracker Application</h5>
+              <span class="project-tech">Java • Swing</span>
+              <p class="project-description">
+                A desktop application to help users track and manage their daily expenses effectively.
+              </p>
+              <button class="view-more-btn">View Details</button>
+              <div class="project-details" style="display: none;">
+                <p>User-friendly desktop application built for personal finance management with intuitive interface design.</p>
+                <ul class="project-features">
+                  <li>Complete CRUD operations for expense records</li>
+                  <li>Category-based expense organization</li>
+                  <li>Monthly and yearly expense reports</li>
+                  <li>Data export functionality</li>
+                  <li>Search and filter capabilities</li>
+                </ul>
+                <p><strong>Team:</strong> Nethmi, Sasuni, Tharushi, Rashmi</p>
+                <a href="https://lnkd.in/dRcNEs67" target="_blank" class="project-link">
+                  View on GitHub <i class="bi bi-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 5 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="project-card">
+            <img src="assets/img/smrt.jpg" class="project-image" alt="Smart Plate for Toddlers">
+            <div class="project-body">
+              <h5 class="project-title">Smart Plate for Toddlers</h5>
+              <span class="project-tech">Research • Mobile UI</span>
+              <p class="project-description">
+                An innovative research project focused on encouraging healthy eating habits in toddlers.
+              </p>
+              <button class="view-more-btn">View Details</button>
+              <div class="project-details" style="display: none;">
+                <p>Research-based mobile application project aimed at promoting healthy eating behaviors in early childhood development.</p>
+                <ul class="project-features">
+                  <li>Child-friendly interactive mobile interface</li>
+                  <li>Gamification elements for engagement</li>
+                  <li>Nutritional tracking and recommendations</li>
+                  <li>Parent dashboard and progress monitoring</li>
+                  <li>Educational content and tips</li>
+                </ul>
+                <p><strong>Team:</strong> Tharushi, Sachith, Rumeth</p>
+                <p><strong>Tech Stack:</strong> React.js, Tailwind CSS, Spring Boot, PostgreSQL</p>
+                <a href="https://lnkd.in/dH22JxBA" target="_blank" class="project-link">
+                  Read Full Paper <i class="bi bi-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!-- Project Card 6 - Final Year Project -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="550">
+  <div class="project-card">
+    <img src="assets/img/fyy.png" class="project-image" alt="AI-Powered Confidence Coach">
+    <div class="project-body">
+      <h5 class="project-title">AI-Powered Confidence Coach</h5>
+      <span class="project-tech">AI • NLP • Computer Vision</span>
+      <p class="project-description">
+        A multi-modal intelligent system designed to enhance users’ public speaking, interviewing, and social skills.
+      </p>
+      <button class="view-more-btn">View Details</button>
+      <div class="project-details" style="display: none;">
+        <p>Our Final Year Project introduces a real-time AI Confidence Coach that provides constructive feedback for self-improvement in communication.</p>
+        <ul class="project-features">
+          <li>Real-time feedback on gestures, voice tone, and eye contact using multi-modal AI</li>
+          <li>Avatar-based role-play simulations for various real-world scenarios</li>
+          <li>Confidence scoring dashboard with improvement suggestions</li>
+          <li>Personalized encouragement and achievement milestones</li>
+        </ul>
+        <p><strong>Technologies:</strong> Python, OpenCV, TensorFlow, React, Flask, WebRTC</p>
+        <p><strong>Team:</strong> Tharushi, [Teammates]</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <!-- Additional Project Card for Portfolio Balance -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="project-card">
+            <div class="project-body d-flex flex-column justify-content-center align-items-center text-center" style="min-height: 300px;">
+              <i class="bi bi-plus-circle" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+              <h5 class="project-title">More Projects Coming Soon</h5>
+              <p class="project-description">
+                I'm constantly working on new and exciting projects. Stay tuned for updates!
+              </p>
+              <a href="contact.html" class="view-more-btn">Get In Touch</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="mb-3">© 2024 <strong>Tharushi Bhagya</strong>. All Rights Reserved</p>
+        <div class="social-links">
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+
+    // Toggle View More functionality
+    document.querySelectorAll('.view-more-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const details = button.nextElementSibling;
+        const isVisible = details.style.display === 'block';
+        
+        if (isVisible) {
+          details.style.display = 'none';
+          button.textContent = 'View Details';
+        } else {
+          details.style.display = 'block';
+          button.textContent = 'Hide Details';
+        }
+      });
+    });
+
+    // Project card animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = 'all 0.6s ease';
+      observer.observe(card);
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

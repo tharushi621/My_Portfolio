@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Resume - Tharushi Bhagya</title>
+  <meta name="description" content="Academic journey and professional development of Tharushi Bhagya">
+  <meta name="keywords" content="resume, education, experience, software engineering">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e293b;
+      --accent-color: #06b6d4;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --background-primary: #ffffff;
+      --background-secondary: #f8fafc;
+      --background-card: #ffffff;
+      --border-color: #e2e8f0;
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #2563eb 100%);
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--background-secondary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Header Styles */
+    .header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .navbar-nav .nav-link {
+      font-weight: 500;
+      color: var(--text-primary);
+      position: relative;
+      transition: all 0.3s ease;
+      margin: 0 0.5rem;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: var(--primary-color);
+    }
+
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-accent);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after {
+      width: 80%;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--background-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+      margin: 0 0.25rem;
+    }
+
+    .social-links a:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: var(--background-primary);
+      padding: 6rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: var(--gradient-primary);
+      opacity: 0.05;
+      border-radius: 0 0 0 100px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-weight: 400;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Section Styles */
+    .resume-section {
+      background: var(--background-secondary);
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--gradient-accent);
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Timeline Styles */
+    .timeline-section {
+      background: var(--background-primary);
+      padding: 5rem 0;
+    }
+
+    .timeline-header {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 3rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline-header::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 30px;
+      background: var(--gradient-accent);
+      border-radius: 2px;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border-color);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      padding-left: 3rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      border: 4px solid white;
+      box-shadow: 0 0 0 4px var(--border-color);
+    }
+
+    .timeline-card {
+      background: var(--background-card);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-accent);
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .timeline-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-period {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: white;
+      padding: 0.25rem 1rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-institution {
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .timeline-description {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .timeline-description ul {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .timeline-description li {
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .timeline-description li::marker {
+      color: var(--primary-color);
+    }
+
+    /* Award Badge */
+    .award-badge {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .award-badge i {
+      margin-right: 0.5rem;
+    }
+
+    /* Download Button */
+    .download-section {
+      background: var(--gradient-primary);
+      padding: 4rem 0;
+      color: white;
+      text-align: center;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .download-btn i {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--secondary-color);
+      color: white;
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-content {
+      text-align: center;
+    }
+
+    .footer .social-links a {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .footer .social-links a:hover {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .timeline {
+        padding-left: 1rem;
+      }
+      
+      .timeline-item {
+        padding-left: 2rem;
+      }
+      
+      .timeline-card {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-section {
+        padding: 4rem 0 2rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .timeline-header {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Tharushi</a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="resume.html">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          
+          <div class="social-links">
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up">
+        <h1 class="hero-title">My Resume</h1>
+        <p class="hero-subtitle">
+          A comprehensive overview of my academic journey and professional development in software engineering.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h3 class="timeline-header">
+            <i class="bi bi-mortarboard me-3"></i>Education
+          </h3>
+          
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-card">
+                <h4 class="timeline-title">BSc (Hons) in Software Engineering</h4>
+                <span class="timeline-period">2023 - Present</span>
+                <p class="timeline-institution">General Sir John Kotelawala Defence University</p>
+                <p class="timeline-description">
+                  Currently pursuing a comprehensive degree program focused on modern software development methodologies, 
+                  system design, and cutting-edge programming technologies.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-card">
+                <h4 class="timeline-title">Diploma in English Language and Literature</h4>
+                <span class="timeline-period">Completed</span>
+                <p class="timeline-institution">Aquinas College of Higher Studies</p>
+                <div class="timeline-description">
+                  <p>Completed with distinction, developing strong communication and analytical skills.</p>
+                  <div class="award-badge">
+                    <i class="bi bi-award"></i>
+                    Merit Award
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-card">
+                <h4 class="timeline-title">Secondary and Advanced Level Studies</h4>
+                <span class="timeline-period">2012 - 2021</span>
+                <p class="timeline-institution">Devi Balika Vidyalaya</p>
+                <p class="timeline-description">
+                  Completed comprehensive secondary education with focus on science and mathematics, 
+                  building a strong foundation for higher studies in technology.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-card">
+                <h4 class="timeline-title">Primary and Secondary Education</h4>
+                <span class="timeline-period">2006 - 2011</span>
+                <p class="timeline-institution">Kalutara Balika National School</p>
+                <p class="timeline-description">
+                  Foundation years focused on developing core academic skills and discovering 
+                  early interests in problem-solving and logical thinking.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="col-lg-6" data-aos="fade-left">
+          <h3 class="timeline-header">
+            <i class="bi bi-briefcase me-3"></i>Professional Experience
+          </h3>
+          
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-card">
+                <h4 class="timeline-title">English Tutor</h4>
+                <span class="timeline-period">2020 - 2023</span>
+                <p class="timeline-institution">Freelance / Part-time</p>
+                <div class="timeline-description">
+                  <p>Provided comprehensive English language instruction to diverse student groups, 
+                     developing strong communication and teaching abilities.</p>
+                  <ul>
+                    <li>Conducted personalized tutoring sessions for students of various age groups</li>
+                    <li>Developed customized lesson plans tailored to individual learning needs</li>
+                    <li>Improved students' grammar, writing, speaking, and comprehension skills</li>
+                    <li>Built student confidence in both academic and conversational English</li>
+                    <li>Maintained high student satisfaction and academic improvement rates</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-card">
+                <h4 class="timeline-title">Software Development Projects</h4>
+                <span class="timeline-period">2023 - Present</span>
+                <p class="timeline-institution">Academic & Personal Projects</p>
+                <div class="timeline-description">
+                  <p>Actively developing various software solutions and research projects.</p>
+                  <ul>
+                    <li>Web application development using modern frameworks</li>
+                    <li>Hardware integration projects with Arduino and IoT</li>
+                    <li>Database design and management systems</li>
+                    <li>Collaborative team development experiences</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="download-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+          <h2 class="mb-4" style="font-family: 'Poppins', sans-serif; font-weight: 700;">
+            Download My Complete Resume
+          </h2>
+          <p class="mb-4" style="font-size: 1.1rem; opacity: 0.9;">
+            Get the full details of my academic background, technical skills, and project experience.
+          </p>
+          <a href="#" class="download-btn">
+            <i class="bi bi-download"></i>
+            Download PDF Resume
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="mb-3">© 2024 <strong>Tharushi Bhagya</strong>. All Rights Reserved</p>
+        <div class="social-links">
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+
+    // Timeline animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe timeline items
+    document.querySelectorAll('.timeline-item').forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(30px)';
+      item.style.transition = 'all 0.6s ease';
+      observer.observe(item);
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
